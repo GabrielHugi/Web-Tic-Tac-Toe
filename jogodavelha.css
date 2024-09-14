@@ -2,6 +2,14 @@ body {
     background-color: rgb(199, 221, 255);
 }
 
+.DifficultyButton {
+    size: 20pt;
+    background-color: rgb(174, 255, 228);
+    border-color: rgb(154, 253, 220);
+    border-radius: 15px;
+    min-width: 100%;
+}
+
 .spot {
     border-width: 2px; border-radius: 2px; border-style: solid;
     margin: 2px;
