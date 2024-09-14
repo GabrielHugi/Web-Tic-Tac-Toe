@@ -11,5 +11,5 @@ document.getElementById("pvr").addEventListener("click", function () {
     document.getElementById("pvp").style.display = "none";
     document.getElementById("pvr").style.display = "none";
     document.getElementById("varyingSource").src = "scripts/playervsrobot.js";
-    document.getElementById("DifficultySource").src = "scripts/playervsrobot.js";
+    document.getElementById("DifficultySource").src = "scripts/dificulty.js";
 })
