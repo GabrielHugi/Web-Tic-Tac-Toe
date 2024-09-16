@@ -1,5 +1,12 @@
+// this file was encoded in ISO 8859-1
 // feito por gabriel loureiro amorim hugi / made by gabriel loureiro amorim hugi
 // this project is under the MIT license
+// some of the comments are in portuguese, others in english. Most are in english though because I prefer english. 
+
+// these variables are used to indicate if a certain special action is the one that
+// is triggering the robot move functions so that it can be tuned better
+var isAdvancedMove = 0;
+
 
 
 // the rate at which the robot will ignore everything and just pick a random spot
@@ -24,8 +31,6 @@ const spot9 = document.getElementById("9");
 
 var player = 1;
 document.addEventListener("click", whichPlayer);
-
-var sucess = 0;
 
 function whichPlayer() {
     // essa parte muda o texto de quem se move baseado em que player est� jogando
@@ -275,6 +280,22 @@ function robotMove() {
         spot3FR();
         return;
     }
+    if (spot1Value == 1 && spot9Value == 1 || spot3Value == 1 && spot7Value == 1) {
+        isAdvancedMove = 1;
+        option = Math.floor(Math.random*4);
+        if (option == 0) {
+            spot2FR();
+        }
+        if (option == 1) {
+            spot4FR();
+        }
+        if (option == 0) {
+            spot6FR();
+        }
+        if (option == 0) {
+            spot8FR();
+        }
+    }
 
 
     // last effort to make sure the robot will always make a move
@@ -317,7 +338,7 @@ function robotMove() {
             avaible[where] = 9;
             where++;
         }
-        option = Math.floor(Math.random()*(where+1));
+        option = Math.floor(Math.random()*(where-1));
         if (avaible[option] == 1) {
             spot1FR();
         }
@@ -357,72 +378,89 @@ function wonOrDraw() {
     if (spot1Value == 1 && spot2Value == 1 && spot3Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot4Value == 1 && spot5Value == 1 && spot6Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot7Value == 1 && spot8Value == 1 && spot9Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot1Value == 1 && spot4Value == 1 && spot7Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot2Value == 1 && spot5Value == 1 && spot8Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot3Value == 1 && spot6Value == 1 && spot9Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot1Value == 1 && spot5Value == 1 && spot9Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     if (spot3Value == 1 && spot5Value == 1 && spot7Value == 1) {
         document.getElementById("player").innerText = "Player 1 won";
         ended = 1;
+        console.log("Player 1 won. Good job!");
     }
     //player 2 (robot nesse caso) vence
     if (spot1Value == 2 && spot2Value == 2 && spot3Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot4Value == 2 && spot5Value == 2 && spot6Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot7Value == 2 && spot8Value == 2 && spot9Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot1Value == 2 && spot4Value == 2 && spot7Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot2Value == 2 && spot5Value == 2 && spot8Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot3Value == 2 && spot6Value == 2 && spot9Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot1Value == 2 && spot5Value == 2 && spot9Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
     if (spot3Value == 2 && spot5Value == 2 && spot7Value == 2) {
         document.getElementById("player").innerText = "Robot won";
         ended = 1;
+        console.log("Robot won");
     }
 
     //empate
     if (spot1Value != 0 && spot2Value != 0 && spot3Value != 0 && spot4Value != 0 && spot5Value != 0 && spot6Value != 0 && spot7Value != 0 && spot8Value != 0 && spot9Value != 0 && ended == 0) {
         document.getElementById("player").innerText = "Draw";
+        console.log("Draw");
     }
 }
 
@@ -435,13 +473,15 @@ function spot1F() {
         spot1.src = 'O.png';
         spot1Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 1");
     }
 }
 // F stands for function and R for robot by the way
 function spot1FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -452,8 +492,10 @@ function spot1FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 1");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot2Value = 0;
@@ -463,13 +505,15 @@ function spot2F() {
         spot2.src = 'O.png';
         spot2Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 2");
     }
 }
 
 function spot2FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -480,8 +524,10 @@ function spot2FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 2");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot3Value = 0;
@@ -491,13 +537,15 @@ function spot3F() {
         spot3.src = 'O.png';
         spot3Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 3");
     }
 }
 
 function spot3FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -508,8 +556,10 @@ function spot3FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 3");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot4Value = 0;
@@ -519,13 +569,15 @@ function spot4F() {
         spot4.src = 'O.png';
         spot4Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 3");
     }
 }
 
 function spot4FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -536,8 +588,10 @@ function spot4FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 4");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 
@@ -548,13 +602,15 @@ function spot5F() {
         spot5.src = 'O.png';
         spot5Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 5");
     }
 }
 
 async function spot5FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => {   
@@ -565,8 +621,10 @@ async function spot5FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 5");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot6Value = 0;
@@ -576,13 +634,15 @@ function spot6F() {
         spot6.src = 'O.png';
         spot6Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 6");
     }
 }
 
 function spot6FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -593,8 +653,10 @@ function spot6FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 6");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot7Value = 0;
@@ -604,13 +666,15 @@ function spot7F() {
         spot7.src = 'O.png';
         spot7Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 7");
     }
 }
 
 function spot7FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -621,8 +685,10 @@ function spot7FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 7");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot8Value = 0;
@@ -632,13 +698,15 @@ function spot8F() {
         spot8.src = 'O.png';
         spot8Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 8");
     }
 }
 
 function spot8FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -649,8 +717,10 @@ function spot8FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 8");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 var spot9Value = 0;
@@ -660,13 +730,15 @@ function spot9F() {
         spot9.src = 'O.png';
         spot9Value = 1;
         player = 2;
+        console.log("Player 1 played at spot 9");
     }
 }
 
 function spot9FR() {
     var optionIDontKnow = Math.random();
-    if (optionIDontKnow >= dificulty && doneFor != 1) {
+    if (optionIDontKnow >= (dificulty - (0.3 * isAdvancedMove)) && doneFor != 1 && ended == 0) {
         spotRandomFR();
+        console.log("Robot picked random move");
         return;
     }
     setTimeout(() => { 
@@ -677,13 +749,15 @@ function spot9FR() {
             whichPlayer();
             wonOrDraw();
             doneFor = 0;
+            console.log("Robot played at spot 9");
         }
     }, 700);
+    isAdvancedMove = 0;
 }
 
 function spotRandomFR() {
+    doneFor = 1;
     setTimeout(() => {
-        doneFor = 1;
         var avaible = [0,0,0,0,0,0,0,0,0];
         var where = 0;
         if (spot1Value == 0) {
@@ -722,7 +796,7 @@ function spotRandomFR() {
             avaible[where] = 9;
             where++;
         }
-        option = Math.floor(Math.random()*(where));
+        option = Math.floor(Math.random()*(where-1));
         if (avaible[option] == 1) {
             spot1FR();
         }

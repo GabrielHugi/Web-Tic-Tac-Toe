@@ -2,15 +2,51 @@ body {
     background-color: rgb(199, 221, 255);
 }
 
+.TicTacToeGame {
+    display: grid;
+    width: 20%;
+    height: 95%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.ConfigMenu {
+    background-color: black;
+    min-width: 30%;
+    margin-right: 10%;
+}
+
 .DifficultyButton {
-    size: 20pt;
-    background-color: rgb(174, 255, 228);
-    border-color: rgb(154, 253, 220);
-    border-radius: 15px;
-    min-width: 100%;
+    background-color: rgb(239, 233, 255);
+    border-color: rgb(176, 176, 176);
+    border-radius: 5px;
+    min-width: 80%;
+    text-align: center;
+    margin-left: 10%; margin-right: 10%; margin-top: 5%;
+    font-size: 15pt;
+}
+
+.DifficultyButton:hover {
+    background-color: rgb(166, 212, 255);
+}
+
+.ConfigButton {
+    background-color: rgb(239, 233, 255);
+    margin-left: 10%; margin-right: 10%; margin-top: 5%;
+    border-radius: 5px;
+    min-width: 80%;
+    min-height: 20%;
+    text-align: center;
+    font-size: 15pt;
+}
+
+.ConfigButton:hover {
+    background-color: rgb(166, 212, 255);
 }
 
 .spot {
     border-width: 2px; border-radius: 2px; border-style: solid;
     margin: 2px;
+    width: 33%;
+    height: 92%;
 }
