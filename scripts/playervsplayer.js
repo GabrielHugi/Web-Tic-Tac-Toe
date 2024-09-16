@@ -18,18 +18,15 @@ var player = 1;
 function whichPlayer() {
     // essa parte muda o texto de quem se move baseado em que player estiver jogando
     // essa parte é separada do resto para economizar linhas de codigo
-    if (killswitch == 0) {
         if (player == 1) {
             document.getElementById("player").innerText = "Player 1 move";
         }
         else document.getElementById("player").innerText = "Player 2 move";
-    }
 }
 
 document.addEventListener("click", wonOrDraw);
 var ended = 0;
 function wonOrDraw() {
-    if (killswitch == 0) {
         // player 1 vence
         if (spot1Value == 1 && spot2Value == 1 && spot3Value == 1) {
             document.getElementById("player").innerText = "Player 1 won";
@@ -117,8 +114,7 @@ function wonOrDraw() {
         if (spot1Value != 0 && spot2Value != 0 && spot3Value != 0 && spot4Value != 0 && spot5Value != 0 && spot6Value != 0 && spot7Value != 0 && spot8Value != 0 && spot9Value != 0 && ended == 0) {
             document.getElementById("player").innerText = "Draw";
             console.log("Draw");
-        }
-    }   
+        } 
 }
 
 // seção para mudar o valor e a imagem do jogo da velha
