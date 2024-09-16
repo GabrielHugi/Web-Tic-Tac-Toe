@@ -48,5 +48,9 @@ body {
     border-width: 2px; border-radius: 2px; border-style: solid;
     margin: 2px;
     width: 33%;
+    min-width: 33%;
+    max-width: 33%;
     height: 92%;
+    min-height: 92%;
+    max-height: 92%;
 }
