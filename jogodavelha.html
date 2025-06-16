@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link rel="stylesheet" href="jogodavelha.css">
 </head>
 <body>
-    <button style="margin-left: 45%; margin-right: 45%; size: 20pt;" id="pvp">Play player vs player</button>
-    <button style="margin-left: 45%; margin-right: 45%; size: 20pt;" id="pvr">Play player vs robot</button>
+    <button class="Button" style="min-width: 40%; line-height: 5; margin-left: 30%; margin-right: 30%;" id="pvp">Play player vs player</button>
+    <button class="Button" style="min-width: 40%; line-height: 5; margin-left: 30%; margin-right: 30%;" id="pvr">Play player vs robot</button>
+    <button class="Button" style="min-width: 40%; line-height: 5; margin-left: 30%; margin-right: 30%;" id="4x4pvr">Experimental</button>
 
     <div id="everything" style="display: none; min-width: 100%;">
         <p style="font-size: 23pt; text-align: center;" id="player">Player 1 move</p>
@@ -17,40 +18,55 @@
             <div class="ConfigMenu" id="ConfigMenuForPVP">
                 <div><p style="color: aliceblue; text-align: center; font-size: 20pt; margin-bottom: 0px;">Configuration Menu</p></div>
                 <div>
-                    <button class="ConfigButton" id="ResetButtonForPVP">Reset game</button>
+                    <button class="Button" id="ResetButtonForPVP">Reset game</button>
                 </div>
             </div>
             <div class="ConfigMenu" id="ConfigMenu">
                 <div><p style="color: aliceblue; text-align: center; font-size: 20pt; margin-bottom: 0px;">Difficulty Menu</p></div>
                 <div>
-                    <button class="DifficultyButton" id="ToddlerDificultyButton">Toddler Dificulty</button>
+                    <button class="Button" id="ToddlerDificultyButton">Toddler Dificulty</button>
                 </div>
                 <div>
-                    <button class="DifficultyButton" id="EasyDificultyButton">Easy Dificulty</button>
+                    <button class="Button" id="EasyDificultyButton">Easy Dificulty</button>
                 </div>
                 <div>
-                    <button class="DifficultyButton" id="MediumDificultyButton">Medium Dificulty</button>
+                    <button class="Button" id="MediumDificultyButton">Medium Dificulty</button>
                 </div>
                 <div>
-                    <button class="DifficultyButton" id="HardDificultyButton">Hard Dificulty</button>
+                    <button class="Button" id="HardDificultyButton">Hard Dificulty</button>
                 </div>
                 <hr style="margin-top: 5%; margin-bottom: 5%;">
                 <div><p style="color: aliceblue; text-align: center; font-size: 20pt; margin-bottom: 0px;">Configuration menu</p></div>
                 <div style="margin-bottom: 5%;">
-                    <button class="ConfigButton" id="ResetButton">Reset game</button>
+                    <button class="Button" id="ResetButton">Reset game</button>
                 </div>
             </div>
 
 
-            <div id="MainTicTacToeDiv" class="TicTacToeGame">
+            <div id="MainTicTacToeDiv" style="display: none;" class="TicTacToeGame">
                 <div style="display: inline-flex;">
-                    <img id="1" class="spot" src="Untitled.png"><img id="2" class="spot" src="Untitled.png"><img id="3" class="spot" src="Untitled.png">
+                    <img id="main1" class="spot" src="Untitled.png" draggable="false"><img id="main2" class="spot" src="Untitled.png" draggable="false"><img id="main3" class="spot" src="Untitled.png" draggable="false">
                 </div>
                 <div style="display: inline-flex;">
-                    <img id="4" class="spot" src="Untitled.png"><img id="5" class="spot" src="Untitled.png"><img id="6" class="spot" src="Untitled.png">
+                    <img id="main4" class="spot" src="Untitled.png" draggable="false"><img id="main5" class="spot" src="Untitled.png" draggable="false"><img id="main6" class="spot" src="Untitled.png" draggable="false">
                 </div>
                 <div style="display: inline-flex;">
-                    <img id="7" class="spot" src="Untitled.png"><img id="8" class="spot" src="Untitled.png"><img id="9" class="spot" src="Untitled.png">
+                    <img id="main7" class="spot" src="Untitled.png" draggable="false"><img id="main8" class="spot" src="Untitled.png" draggable="false"><img id="main9" class="spot" src="Untitled.png" draggable="false">
+                </div>
+            </div>
+            <!-- big hmmm -->
+            <div id="4x4TicTacToeDiv" style="display: none;" class="TicTacToeGame">
+                <div style="display: inline-flex;">
+                    <img id="4grid1" class="spot" src="Untitled.png" draggable="false"><img id="4grid2" class="spot" src="Untitled.png" draggable="false"><img id="4grid3" class="spot" src="Untitled.png" draggable="false"><img id="4grid4" class="spot" src="Untitled.png" draggable="false">
+                </div>
+                <div style="display: inline-flex;">
+                    <img id="4grid5" class="spot" src="Untitled.png" draggable="false"><img id="4grid6" class="spot" src="Untitled.png" draggable="false"><img id="4grid7" class="spot" src="Untitled.png" draggable="false"><img id="4grid8" class="spot" src="Untitled.png" draggable="false">
+                </div>
+                <div style="display: inline-flex;">
+                    <img id="4grid9" class="spot" src="Untitled.png" draggable="false"><img id="4grid10" class="spot" src="Untitled.png" draggable="false"><img id="4grid11" class="spot" src="Untitled.png" draggable="false"><img id="4grid12" class="spot" src="Untitled.png" draggable="false">
+                </div>
+                <div style="display: inline-flex;">
+                    <img id="4grid13" class="spot" src="Untitled.png" draggable="false"><img id="4grid14" class="spot" src="Untitled.png" draggable="false"><img id="4grid15" class="spot" src="Untitled.png" draggable="false"><img id="4grid16" class="spot" src="Untitled.png" draggable="false">
                 </div>
             </div>
         </div>

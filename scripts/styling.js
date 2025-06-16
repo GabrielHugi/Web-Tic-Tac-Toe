@@ -4,12 +4,16 @@
 
 // file for making sure the css works with every browser configuration (hopefuly)
 
-ResizeFunction();
-window.addEventListener('resize', ResizeFunction);
+//ResizeFunction();
+//window.addEventListener('resize', ResizeFunction);
 
+//this shit is useless for now
 function ResizeFunction () {
-    var screenHeight = window.outerHeight;
-    var screenWidth = window.outerWidth;
+    //adjusts screen
+    var screenHeight = window.innerHeight;
+    var screenWidth = window.innerWidth;
     document.body.style.height = screenHeight + "px";
     document.body.style.width = screenWidth + "px";
+    document.body.style.maxHeight = screenHeight + "px";
+    document.body.style.maxWidth = screenWidth + "px";
 }

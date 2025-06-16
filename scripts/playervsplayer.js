@@ -3,21 +3,21 @@
 // this project is under the MIT license
 // some of the comments are in portuguese, others in english. Most are in english though because I prefer english. 
 
-const spot1 = document.getElementById("1");
-const spot2 = document.getElementById("2");
-const spot3 = document.getElementById("3");
-const spot4 = document.getElementById("4");
-const spot5 = document.getElementById("5");
-const spot6 = document.getElementById("6");
-const spot7 = document.getElementById("7");
-const spot8 = document.getElementById("8");
-const spot9 = document.getElementById("9");
+const spot1 = document.getElementById("main1");
+const spot2 = document.getElementById("main2");
+const spot3 = document.getElementById("main3");
+const spot4 = document.getElementById("main4");
+const spot5 = document.getElementById("main5");
+const spot6 = document.getElementById("main6");
+const spot7 = document.getElementById("main7");
+const spot8 = document.getElementById("main8");
+const spot9 = document.getElementById("main9");
 
 document.addEventListener("click", whichPlayer);
 var player = 1;
 function whichPlayer() {
     // essa parte muda o texto de quem se move baseado em que player estiver jogando
-    // essa parte é separada do resto para economizar linhas de codigo
+    // essa parte ï¿½ separada do resto para economizar linhas de codigo
         if (player == 1) {
             document.getElementById("player").innerText = "Player 1 move";
         }
@@ -117,7 +117,7 @@ function wonOrDraw() {
         } 
 }
 
-// seção para mudar o valor e a imagem do jogo da velha
+// seï¿½ï¿½o para mudar o valor e a imagem do jogo da velha
 
 var spot1Value = 0;
 spot1.addEventListener("click", spot1F);
